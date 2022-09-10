@@ -1,9 +1,16 @@
 import { faArrowLeft, faArrowLeftLong } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const Country = () => {
+    const [country, setCountry] = useState(null);
+
+    useEffect(() => {
+        // get param
+        // getData(param)
+    }, []);
+
     const data = {
         id: 234234,
         slug: 'country',
