@@ -13,6 +13,7 @@ const Home = () => {
         setCountries(countriesContext.countries)
     }, [countriesContext]);
 
+    // TODO: make a loader component
     let content;
     if(countries.length) content = <CountriesGrid countries={countries}/>
     if(countriesContext.isLoading) content = <p>Loading</p>
