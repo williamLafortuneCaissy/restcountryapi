@@ -1,8 +1,17 @@
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import CountryCard from "./CountryCard";
+import { useEffect, useState } from "react";
+import CountryGrid from "./CountryGrid";
 
 const Home = () => {
+    const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState(null);
+    const [countries, setCountries] = useState([]);
+
+    useEffect(() => {
+        // fetchCountries()
+    }, []);
+
     const data = [
         {
             id: 234234,
@@ -66,6 +75,11 @@ const Home = () => {
         }
     ]
 
+    let content;
+    if(data.length) content = <CountryGrid countries={data}/>
+    if(isLoading) content = <p>Loading</p>
+    if(error) content = <p>{error}</p>
+
     return (
         <div className="home">
             <div className="container">
@@ -80,11 +94,8 @@ const Home = () => {
                         <option value="">Filter by Region</option>
                     </select>
                 </div>
-                <div className="home__grid">
-                    {data.map( country => (
-                        <CountryCard key={country.id} country={country} />
-                    ))}
-                </div>
+
+                {content}
             </div>
         </div>
     );
