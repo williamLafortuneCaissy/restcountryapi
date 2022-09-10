@@ -1,4 +1,6 @@
-@use 'variables';
-@use 'fonts';
-@use 'global';
+@import 'variables';
+@import 'fonts';
+@import 'global';
+
+@import 'components/header';
 // * {background: red}
