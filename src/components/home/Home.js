@@ -1,9 +1,10 @@
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useContext, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import uuid from "react-uuid";
 import CountriesContext from "../../context/countriesContext";
-import CountriesGrid from "./CountriesGrid";
+import Loader from "../Loader";
 
 const Home = () => {
     const [countries, setCountries] = useState([]);
@@ -12,12 +13,6 @@ const Home = () => {
     useEffect(() => {
         setCountries(countriesContext.countries)
     }, [countriesContext]);
-
-    // TODO: make a loader component
-    let content;
-    if(countries.length) content = <CountriesGrid countries={countries}/>
-    if(countriesContext.isLoading) content = <p>Loading</p>
-    if(countriesContext.error) content = <p>{countriesContext.error}</p>
 
     return (
         <div className="home">
@@ -33,8 +28,35 @@ const Home = () => {
                         <option value="">Filter by Region</option>
                     </select>
                 </div>
-
-                {content}
+                <Loader
+                    isLoading={countriesContext.isLoading}
+                    error={countriesContext.error}
+                >
+                    {!!countries &&
+                        <div className="home__grid">
+                            {countries.map( country => (
+                                <Link key={country.id} to={country.slug} className="countryCard">
+                                    <img className="countryCard__img" src={country.img} alt={`${country.name}'s flag`} width="320" height="192"/>
+                                    <div className="countryCard__body">
+                                        <h2 className="countryCard__title">{country.name}</h2>
+                                        <div className="lh-big">
+                                            <span className="fw-medium">Population: </span>
+                                            <span>{country.population}</span>
+                                        </div>
+                                        <div className="lh-big">
+                                            <span className="fw-medium">Region: </span>
+                                            <span>{country.region}</span>
+                                        </div>
+                                        <div className="lh-big">
+                                            <span className="fw-medium">Capital: </span>
+                                            <span>{country.capital}</span>
+                                        </div>
+                                    </div>
+                                </Link>
+                            ))}
+                        </div>
+                    }
+                </Loader>
             </div>
         </div>
     );

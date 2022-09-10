@@ -1,17 +1,13 @@
-import { useContext } from "react";
-import CountriesContext from "../context/countriesContext";
+const Loader = ({isLoading, error, children}) => {
 
-const Loader = ({childrens}) => {
-    const countriesContext = useContext(CountriesContext)
-
-    let content;
-
-    if(countriesContext.countries) content = {childrens}
-    if(countriesContext.isLoading) content = <p>Loading</p>
-    if(countriesContext.error) content = <p>{countriesContext.error}</p>
+    let content = children
+    if(isLoading) content = <p>Loading</p>
+    if(error) content = <p>{error}</p>
 
     return (
-        {content}
+        <>
+            {content}
+        </>
     );
 }
 
