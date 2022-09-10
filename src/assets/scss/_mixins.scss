@@ -2,6 +2,7 @@
     border: 0;
     box-shadow: $box-shadow;
     border-radius: .25rem;
+    background-color: var(--component);
     color: var(--input);
-    background-color: var(--component)
+    transition: $theme-transition;
 }

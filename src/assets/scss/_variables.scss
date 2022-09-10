@@ -6,11 +6,6 @@
     --dark-gray: hsl(0, 0%, 52%);
     --light-gray: hsl(0, 0%, 98%);
     --white: hsl(0, 0%, 100%);
-
-    --background: var(--light-gray);
-    --component: var(--white);
-    --text: var(--dark-blue-text);
-    --input: var(--dark-gray);
 }
 
 $bp-tablet-up: 768px;
@@ -24,3 +19,4 @@ $fw-medium: 600;
 $fw-bold: 800;
 
 $box-shadow: 0 0 5px rgba(0, 0, 0, .1);
+$theme-transition: color .2s ease, background-color .2s ease;

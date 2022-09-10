@@ -26,6 +26,21 @@ body {
         background: var(--background);
         color: var(--text);
         flex-grow: 1;
+        transition: $theme-transition;
+    }
+
+    &--dark {
+        --background: var(--dark-blue-bg);
+        --component: var(--dark-blue-el);
+        --text: var(--white);
+        --input: var(--white);
+    }
+
+    &--light {
+        --background: var(--light-gray);
+        --component: var(--white);
+        --text: var(--dark-blue-text);
+        --input: var(--dark-gray);
     }
 }
 

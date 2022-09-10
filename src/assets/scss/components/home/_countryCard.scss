@@ -6,6 +6,7 @@
     margin-inline: auto;
     background-color: var(--component);
     color: var(--text);
+    transition: $theme-transition;
     font-size: 14px;
 
     &__img {

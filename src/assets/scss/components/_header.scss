@@ -2,6 +2,7 @@
 .header {
     background-color: var(--component);
     color: var(--text);
+    transition: $theme-transition;
     padding: 2rem 0;
     box-shadow: $box-shadow;
     position: sticky;
@@ -17,5 +18,12 @@
         font-size: 1rem;
         font-weight: $fw-bold;
         margin: 0;
+    }
+
+    &__toggler {
+        cursor: pointer;
+        background-color: transparent;
+        color: inherit;
+        border: none;
     }
 }
