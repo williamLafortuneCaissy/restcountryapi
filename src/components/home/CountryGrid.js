@@ -5,7 +5,7 @@ const CountryGrid = ({countries}) => {
         <div className="home__grid">
             {countries.map( country => (
                 <Link key={country.id} to={country.slug} className="countryCard">
-                    <img className="flag-img " src={country.img} alt={`${country.name}'s flag`} />
+                    <img className="countryCard__img" src={country.img} alt={`${country.name}'s flag`} width="320" height="192"/>
                     <div className="countryCard__body">
                         <h2 className="countryCard__title">{country.name}</h2>
                         <div className="lh-big">

@@ -9,8 +9,17 @@ const Home = () => {
     const [error, setError] = useState(null);
     const [countries, setCountries] = useState([]);
 
+    // set setCountries from storage || fetched data
     useEffect(() => {
-        fetchCountries()
+        const today = new Date().getTime();
+        const expiry = localStorage.getItem('countriesExpiry')
+
+        if(expiry && today < expiry) {
+            const storedCountries = JSON.parse(localStorage.getItem('countries')) || []
+            setCountries(storedCountries)
+        } else {
+            fetchCountries()
+        }
     }, []);
 
     async function fetchCountries() {
@@ -41,36 +50,40 @@ const Home = () => {
 
         setCountries(transformedCountries);
 
+        localStorage.setItem('countries', JSON.stringify(transformedCountries))
+
+        const today = new Date();
+        const tomorrow = new Date(today. getFullYear(), today. getMonth(), today. getDate()+1).getTime();
+        localStorage.setItem('countriesExpiry', tomorrow)
+
         } catch (error) {
             setError(error.message)
         }
 
         setIsLoading(false)
     }
-    const data = [
-        {
-            id: 234234,
-            slug: 'country',
-            img: 'https://via.placeholder.com/500x300',
-            name: 'Belgium',
-            nativeName: 'Belgie',
-            population: 345363,
-            region: 'Europe',
-            subRegion: 'Western Europe',
-            capital: 'Brussels',
-            topLevelDomain: '.be',
-            currency: 'Euro',
-            languages: ['Dutch', 'French', 'German'],
-            borderCountries: ['France', 'Germany', 'Netherlands'],
-        },
-    ]
+    // const data = [
+    //     {
+    //         id: 234234,
+    //         slug: 'country',
+    //         img: 'https://via.placeholder.com/500x300',
+    //         name: 'Belgium',
+    //         nativeName: 'Belgie',
+    //         population: 345363,
+    //         region: 'Europe',
+    //         subRegion: 'Western Europe',
+    //         capital: 'Brussels',
+    //         topLevelDomain: '.be',
+    //         currency: 'Euro',
+    //         languages: ['Dutch', 'French', 'German'],
+    //         borderCountries: ['France', 'Germany', 'Netherlands'],
+    //     },
+    // ]
 
     let content;
-    if(data.length) content = <CountryGrid countries={countries}/>
+    if(countries.length) content = <CountryGrid countries={countries}/>
     if(isLoading) content = <p>Loading</p>
     if(error) content = <p>{error}</p>
-
-    console.log(countries)
 
     return (
         <div className="home">
