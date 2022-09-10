@@ -1,6 +1,7 @@
 .home {
     --grid-gap: 3rem;
     padding-bottom: var(--grid-gap);
+    font-size: 14px;
 
     &__inputs {
         @media screen and (min-width: $bp-tablet-up) {

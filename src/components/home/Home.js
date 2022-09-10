@@ -6,6 +6,7 @@ const Home = () => {
     const data = [
         {
             id: 234234,
+            slug: 'country',
             img: 'https://via.placeholder.com/500x300',
             name: 'Belgium',
             nativeName: 'Belgie',
@@ -20,6 +21,7 @@ const Home = () => {
         },
         {
             id: 2342234,
+            slug: 'country',
             img: 'https://via.placeholder.com/500x300',
             name: 'Belgium',
             nativeName: 'Belgie',
@@ -34,6 +36,7 @@ const Home = () => {
         },
         {
             id: 2342534,
+            slug: 'country',
             img: 'https://via.placeholder.com/500x300',
             name: 'Belgium',
             nativeName: 'Belgie',
@@ -48,6 +51,7 @@ const Home = () => {
         },
         {
             id: 2342334,
+            slug: 'country',
             img: 'https://via.placeholder.com/500x300',
             name: 'Belgium',
             nativeName: 'Belgie',

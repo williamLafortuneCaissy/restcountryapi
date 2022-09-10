@@ -1,0 +1,7 @@
+@mixin input {
+    border: 0;
+    box-shadow: $box-shadow;
+    border-radius: .25rem;
+    color: var(--input);
+    background-color: var(--component)
+}

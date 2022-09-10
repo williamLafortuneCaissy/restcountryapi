@@ -1,8 +1,10 @@
+@import 'mixins';
 @import 'variables';
 @import 'fonts';
 @import 'global';
 
 @import 'components/header';
 @import 'components/home/home';
+@import 'components/country';
 @import 'components/home/countryCard';
 // * {background: red}

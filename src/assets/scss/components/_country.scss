@@ -1,0 +1,88 @@
+.country {
+    --spacing-big: 3rem;
+    --spacing-medium: 1.5rem;
+    font-size: 16px;
+    padding-bottom: var(--spacing-big);
+
+    @media screen and (min-width: $bp-desktop-up) {
+        --spacing-big: 5rem;
+    }
+
+    &__grid {
+        @media screen and (min-width: $bp-desktop-up) {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+    }
+
+    &__back {
+        margin-block: var(--spacing-big);
+        font-size: 1rem;
+
+        svg {
+            margin-right: .75rem;
+        }
+    }
+
+    &__img {
+        margin-bottom: var(--spacing-big);
+
+        @media screen and (min-width: $bp-desktop-up) {
+            padding-right: var(--spacing-big);
+        }
+    }
+
+    &__info {
+        @media screen and (min-width: $bp-tablet-up) {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+    }
+
+    &__section {
+        margin-bottom: var(--spacing-medium);
+    }
+
+    &__title {
+        margin-top: 0;
+        margin-bottom: var(--spacing-medium);
+        font-size: 1.5rem;
+        font-weight: $fw-bold;
+    }
+
+
+    .borderCountries {
+        --btn-spacing: .5rem;
+
+        @media screen and (min-width: $bp-desktop-up) {
+            display: flex;
+            align-items: center;
+        }
+
+        &__title {
+            font-weight: $fw-medium;
+            margin: 0;
+
+            @media screen and (max-width: $bp-desktop-down) {
+                margin-bottom: .75rem;
+            }
+            @media screen and (min-width: $bp-desktop-up) {
+                margin-right: var(--btn-spacing);
+            }
+        }
+
+
+
+        &__btn {
+            margin-right: var(--btn-spacing);
+            font-size: .8rem;
+            font-weight: $fw-medium;
+
+            @media screen and (max-width: $bp-desktop-down) {
+                margin-bottom: var(--btn-spacing);
+            }
+        }
+    }
+}

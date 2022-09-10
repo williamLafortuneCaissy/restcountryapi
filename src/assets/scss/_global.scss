@@ -2,8 +2,13 @@
     box-sizing: border-box;
 }
 
+a {
+    text-decoration: none;
+}
+
 body {
     font-family: $font-family;
+    font-weight: $fw-light;
     margin: 0;
 }
 
@@ -25,9 +30,32 @@ body {
 }
 
 .input {
+    @include input;
     padding: 1rem;
-    border: 0;
-    box-shadow: $box-shadow;
-    border-radius: .25rem;
-    color: var(--input);
+}
+
+.btn {
+    @include input;
+    display: inline-block;
+    padding: .75em 2em;
+}
+
+.fw-light {
+    font-weight: $fw-light;
+}
+.fw-medium {
+    font-weight: $fw-medium;
+}
+.fw-bold {
+    font-weight: $fw-bold;
+}
+
+.lh-big {
+    line-height: 2;
+}
+
+.flag-img {
+    width: 100%;
+    height: auto;
+    vertical-align: middle;
 }

@@ -4,7 +4,7 @@
     overflow: hidden;
     max-width: 350px;
     margin-inline: auto;
-    background-color: var(--components);
+    background-color: var(--component);
     color: var(--text);
     font-size: 14px;
 
@@ -24,17 +24,5 @@
         font-size: 1.25rem;
         font-weight: $fw-bold;
         margin-bottom: 1.25rem;
-    }
-
-    &__info {
-        line-height: 1.75;
-    }
-
-    &__label {
-        font-weight: $fw-medium;
-    }
-
-    &__value {
-        font-weight: $fw-light;
     }
 }
