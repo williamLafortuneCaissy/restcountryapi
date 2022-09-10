@@ -10,9 +10,17 @@
     --background: var(--light-gray);
     --components: var(--white);
     --text: var(--dark-blue-text);
+    --input: var(--dark-gray);
 }
+
+$bp-tablet-up: 768px;
+$bp-tablet-down: 767px;
+$bp-desktop-up: 1200px;
+$bp-desktop-down: 1199px;
 
 $font-family: "Munito";
 $fw-light: 300;
 $fw-medium: 600;
 $fw-bold: 800;
+
+$box-shadow: 0 0 5px rgba(0, 0, 0, .1);

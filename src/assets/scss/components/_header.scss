@@ -3,9 +3,10 @@
     background-color: var(--components);
     color: var(--text);
     padding: 2rem 0;
-    box-shadow: 0 0 5px rgba(0, 0, 0, .1);
+    box-shadow: $box-shadow;
     position: sticky;
     top: 0;
+    z-index: 1;
 
     &__container {
         display: flex;

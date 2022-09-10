@@ -1,0 +1,40 @@
+.countryCard {
+    box-shadow: $box-shadow;
+    border-radius: .25rem;
+    overflow: hidden;
+    max-width: 350px;
+    margin-inline: auto;
+    background-color: var(--components);
+    color: var(--text);
+    font-size: 14px;
+
+    &__img {
+        width: 100%;
+        height: auto;
+        vertical-align: middle;
+    }
+
+    &__body {
+        padding: 1.75rem;
+        padding-bottom: 2.5rem;
+    }
+
+    &__title {
+        margin: 0;
+        font-size: 1.25rem;
+        font-weight: $fw-bold;
+        margin-bottom: 1.25rem;
+    }
+
+    &__info {
+        line-height: 1.75;
+    }
+
+    &__label {
+        font-weight: $fw-medium;
+    }
+
+    &__value {
+        font-weight: $fw-light;
+    }
+}
