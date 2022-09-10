@@ -8,11 +8,32 @@ import Loader from "../Loader";
 
 const Home = () => {
     const [countries, setCountries] = useState([]);
+    const [regions, setRegions] = useState([]);
+    const [filter, setFilter] = useState('');
+
     const countriesContext = useContext(CountriesContext)
 
     useEffect(() => {
         setCountries(countriesContext.countries)
+
+        let regionArray = []
+        countriesContext.countries.map(country => {
+            if(!regionArray.includes(country.region)) {
+                regionArray = [...regionArray, country.region]
+            }
+        })
+        regionArray = regionArray.sort()
+        setRegions(regionArray)
     }, [countriesContext]);
+
+    function handleFilter(event) {
+        const selectedRegions = event.target.value
+        if(selectedRegions) {
+            setCountries(countriesContext.countries.filter(country => country.region === selectedRegions))
+        } else {
+            setCountries(countriesContext.countries)
+        }
+    }
 
     return (
         <div className="home">
@@ -24,8 +45,17 @@ const Home = () => {
                         </div>
                         <input className="search__input input" type="text" placeholder="Search for a country..."/>
                     </div>
-                    <select className="filter input" name="" id="">
-                        <option value="">Filter by Region</option>
+
+                    <select
+                        defaultValue=""
+                        onChange={handleFilter}
+                        className="filter input"
+                    >
+                        <option value="" disabled hidden>Filter by Region</option>
+                        <option value="">All Regions</option>
+                        {regions.map(region => (
+                            <option key={region} value={region}>{region}</option>
+                        ))}
                     </select>
                 </div>
                 <Loader
