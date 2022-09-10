@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useContext, useEffect, useState } from "react";
 import uuid from "react-uuid";
 import CountriesContext from "../../context/countriesContext";
-import CountryGrid from "./CountryGrid";
+import CountriesGrid from "./CountriesGrid";
 
 const Home = () => {
     const [countries, setCountries] = useState([]);
@@ -14,7 +14,7 @@ const Home = () => {
     }, [countriesContext]);
 
     let content;
-    if(countries.length) content = <CountryGrid countries={countries}/>
+    if(countries.length) content = <CountriesGrid countries={countries}/>
     if(countriesContext.isLoading) content = <p>Loading</p>
     if(countriesContext.error) content = <p>{countriesContext.error}</p>
 

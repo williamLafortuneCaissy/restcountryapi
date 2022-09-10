@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const CountryGrid = ({countries}) => {
+const CountriesGrid = ({countries}) => {
     return (
         <div className="home__grid">
             {countries.map( country => (
@@ -27,4 +27,4 @@ const CountryGrid = ({countries}) => {
     );
 }
 
-export default CountryGrid;
+export default CountriesGrid;
