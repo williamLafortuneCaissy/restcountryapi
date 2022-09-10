@@ -1,0 +1,18 @@
+:root {
+    --dark-blue-el: hsl(209, 23%, 22%);
+    --dark-blue-bg: hsl(207, 26%, 17%);
+    --dark-blue-text: hsl(200, 15%, 8%);
+
+    --dark-gray: hsl(0, 0%, 52%);
+    --light-gray: hsl(0, 0%, 98%);
+    --white: hsl(0, 0%, 100%);
+
+    --background: var(--light-gray);
+    --components: var(--white);
+    --text: var(--dark-blue-text);
+}
+
+$font-family: "Munito, sans";
+$fw-light: 300;
+$fw-medium: 600;
+$fw-bold: 800;
