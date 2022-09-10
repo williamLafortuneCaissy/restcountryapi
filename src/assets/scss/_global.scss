@@ -47,6 +47,11 @@ body {
 .input {
     @include input;
     padding: 1rem;
+
+    &::placeholder {
+        color: var(--text);
+        transition: $theme-transition;
+    }
 }
 
 .btn {
