@@ -42,14 +42,36 @@ export const CountriesContextProvider = ({children}) => {
 
             const transformedCountries = []
             for (const key in fetchedData) {
+
+                // transform an object into an array of the given property (or the actual value)
+                function getArray(object, prop = null) {
+                    let array = []
+
+                    for (const key in object) {
+                        if (Object.hasOwnProperty.call(object, key)) {
+                            // get prop of the object || get the value
+                            const value = prop ? object[key][prop] : object[key];
+
+                            array = [...array, value]
+                        }
+                    }
+                    return array
+                }
+
                 const countryData = {
                     id: uuid(),
                     slug: fetchedData[key].cca3,
                     img: fetchedData[key].flags.png,
                     name: fetchedData[key].name.common,
+                    nativeName: fetchedData[key].name.official,
                     population: fetchedData[key].population,
                     region: fetchedData[key].region,
+                    subRegion: fetchedData[key].subregion,
                     capital: fetchedData[key].capital,
+                    topLevelDomain: fetchedData[key].tld,
+                    currencies: getArray(fetchedData[key].currencies, 'name'),
+                    languages: getArray(fetchedData[key].languages),
+                    borderCountries: fetchedData[key].borders,
                 }
                 transformedCountries.push(countryData)
             }

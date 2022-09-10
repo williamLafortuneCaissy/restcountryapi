@@ -11,14 +11,13 @@ const Country = () => {
     let { countryParam } = useParams();
 
     useEffect(() => {
-        console.log(countryParam)
         const filteredCountry = countriesContext.countries.find(country => country.slug === countryParam)
         setCountry(filteredCountry)
-    }, [countriesContext]);
+    }, [countriesContext, countryParam]);
 
     // TODO: make a loader component
     let content;
-    if(country) content = <CountryGrid />
+    if(country) content = <CountryGrid country={country} />
     if(countriesContext.isLoading) content = <p>Loading</p>
     if(countriesContext.error) content = <p>{countriesContext.error}</p>
 
