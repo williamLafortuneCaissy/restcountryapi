@@ -15,7 +15,7 @@ function App() {
             <div className="app__content">
                 <Routes>
                     <Route path="/" element={<Home />} />
-                    <Route path="/:country" element={<Country />} />
+                    <Route path="/:countryParam" element={<Country />} />
                 </Routes>
             </div>
         </div>

@@ -1,15 +1,20 @@
 import { faArrowLeft, faArrowLeftLong } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
+import CountriesContext from "../../context/countriesContext";
 
 const Country = () => {
     const [country, setCountry] = useState(null);
+    const countriesContext = useContext(CountriesContext)
+    let { countryParam } = useParams();
 
     useEffect(() => {
-        // get param
-        // getData(param)
-    }, []);
+        console.log(countryParam)
+        const filteredCountry = countriesContext.countries.find(country => country.slug === countryParam)
+        setCountry(filteredCountry)
+    }, [countriesContext]);
+
 
     const data = {
         id: 234234,
