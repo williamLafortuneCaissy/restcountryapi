@@ -59,17 +59,16 @@
         @media screen and (min-width: $bp-desktop-up) {
             display: flex;
             align-items: center;
+            flex-wrap: wrap;
         }
 
         &__title {
             font-weight: $fw-medium;
             margin: 0;
 
-            @media screen and (max-width: $bp-desktop-down) {
-                margin-bottom: .75rem;
-            }
             @media screen and (min-width: $bp-desktop-up) {
                 margin-right: var(--btn-spacing);
+                margin-bottom: var(--btn-spacing);
             }
         }
 
@@ -77,12 +76,9 @@
 
         &__btn {
             margin-right: var(--btn-spacing);
+            margin-bottom: var(--btn-spacing);
             font-size: .8rem;
             font-weight: $fw-medium;
-
-            @media screen and (max-width: $bp-desktop-down) {
-                margin-bottom: var(--btn-spacing);
-            }
         }
     }
 }
