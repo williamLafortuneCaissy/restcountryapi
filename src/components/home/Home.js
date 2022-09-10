@@ -1,6 +1,7 @@
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
+import uuid from "react-uuid";
 import CountryGrid from "./CountryGrid";
 
 const Home = () => {
@@ -9,9 +10,43 @@ const Home = () => {
     const [countries, setCountries] = useState([]);
 
     useEffect(() => {
-        // fetchCountries()
+        fetchCountries()
     }, []);
 
+    async function fetchCountries() {
+        setIsLoading(true)
+        setError(null)
+
+        try {
+            const response = await fetch('https://restcountries.com/v3.1/all')
+
+            if (!response.ok) throw new Error('Something went wrong!')
+            const fetchedData = await response.json()
+
+            console.log(fetchedData)
+
+            const transformedCountries = []
+            for (const key in fetchedData) {
+                const countryData = {
+                    id: uuid(),
+                    slug: fetchedData[key].cca3,
+                    img: fetchedData[key].flags.png,
+                    name: fetchedData[key].name.common,
+                    population: fetchedData[key].population,
+                    region: fetchedData[key].region,
+                    capital: fetchedData[key].capital,
+                }
+                transformedCountries.push(countryData)
+            }
+
+        setCountries(transformedCountries);
+
+        } catch (error) {
+            setError(error.message)
+        }
+
+        setIsLoading(false)
+    }
     const data = [
         {
             id: 234234,
@@ -28,57 +63,14 @@ const Home = () => {
             languages: ['Dutch', 'French', 'German'],
             borderCountries: ['France', 'Germany', 'Netherlands'],
         },
-        {
-            id: 2342234,
-            slug: 'country',
-            img: 'https://via.placeholder.com/500x300',
-            name: 'Belgium',
-            nativeName: 'Belgie',
-            population: 345363,
-            region: 'Europe',
-            subRegion: 'Western Europe',
-            capital: 'Brussels',
-            topLevelDomain: '.be',
-            currency: 'Euro',
-            languages: ['Dutch', 'French', 'German'],
-            borderCountries: ['France', 'Germany', 'Netherlands'],
-        },
-        {
-            id: 2342534,
-            slug: 'country',
-            img: 'https://via.placeholder.com/500x300',
-            name: 'Belgium',
-            nativeName: 'Belgie',
-            population: 345363,
-            region: 'Europe',
-            subRegion: 'Western Europe',
-            capital: 'Brussels',
-            topLevelDomain: '.be',
-            currency: 'Euro',
-            languages: ['Dutch', 'French', 'German'],
-            borderCountries: ['France', 'Germany', 'Netherlands'],
-        },
-        {
-            id: 2342334,
-            slug: 'country',
-            img: 'https://via.placeholder.com/500x300',
-            name: 'Belgium',
-            nativeName: 'Belgie',
-            population: 345363,
-            region: 'Europe',
-            subRegion: 'Western Europe',
-            capital: 'Brussels',
-            topLevelDomain: '.be',
-            currency: 'Euro',
-            languages: ['Dutch', 'French', 'German'],
-            borderCountries: ['France', 'Germany', 'Netherlands'],
-        }
     ]
 
     let content;
-    if(data.length) content = <CountryGrid countries={data}/>
+    if(data.length) content = <CountryGrid countries={countries}/>
     if(isLoading) content = <p>Loading</p>
     if(error) content = <p>{error}</p>
+
+    console.log(countries)
 
     return (
         <div className="home">
