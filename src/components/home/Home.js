@@ -10,9 +10,11 @@ const Home = () => {
     const [countries, setCountries] = useState([]);
     const [regions, setRegions] = useState([]);
     const [filter, setFilter] = useState('');
+    const [search, setSearch] = useState('');
 
     const countriesContext = useContext(CountriesContext)
 
+    // init countries + regions
     useEffect(() => {
         setCountries(countriesContext.countries)
 
@@ -26,13 +28,25 @@ const Home = () => {
         setRegions(regionArray)
     }, [countriesContext]);
 
-    function handleFilter(event) {
-        const selectedRegions = event.target.value
-        if(selectedRegions) {
-            setCountries(countriesContext.countries.filter(country => country.region === selectedRegions))
-        } else {
-            setCountries(countriesContext.countries)
+    // filter countries based on search and filter
+    useEffect(() => {
+        let filteredCountries = countriesContext.countries;
+        if(filter) {
+            filteredCountries = filteredCountries.filter(country => country.region === filter)
         }
+        if(search) {
+            // compare country name and search lowercased
+            filteredCountries = filteredCountries.filter(country => country.name.toLowerCase().includes(search.toLowerCase()))
+        }
+        setCountries(filteredCountries)
+    }, [filter, search]);
+
+
+    function handleInput(event) {
+        const input = event.target
+
+        if(input.name === 'filter') setFilter(input.value)
+        if(input.name === 'search') setSearch(input.value)
     }
 
     return (
@@ -43,12 +57,20 @@ const Home = () => {
                         <div className="search__icon">
                             <FontAwesomeIcon icon={faSearch} />
                         </div>
-                        <input className="search__input input" type="text" placeholder="Search for a country..."/>
+                        <input
+                            className="search__input input"
+                            type="text"
+                            name="search"
+                            placeholder="Search for a country..."
+                            onChange={handleInput}
+                            value={search}
+                        />
                     </div>
 
                     <select
                         defaultValue=""
-                        onChange={handleFilter}
+                        name="filter"
+                        onChange={handleInput}
                         className="filter input"
                     >
                         <option value="" disabled hidden>Filter by Region</option>
