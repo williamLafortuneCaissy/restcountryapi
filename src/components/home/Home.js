@@ -15,7 +15,7 @@ const Home = () => {
 
     // init countries + regions
     useEffect(() => {
-        setCountries(countriesContext.countries)
+        setCountries(sortCountries(countriesContext.countries))
 
         let regionArray = []
         countriesContext.countries.forEach(country => {
@@ -37,9 +37,13 @@ const Home = () => {
             // compare country name and search lowercased
             filteredCountries = filteredCountries.filter(country => country.name.toLowerCase().includes(search.toLowerCase()))
         }
-        setCountries(filteredCountries)
+        setCountries(sortCountries(filteredCountries))
     }, [filter, search, countriesContext.countries]);
 
+    // return the array of country sorted by population
+    function sortCountries(countries) {
+        return countries.sort((el1, el2) => el1.population < el2.population ? 1 : -1)
+    }
 
     function handleInput(event) {
         const input = event.target
