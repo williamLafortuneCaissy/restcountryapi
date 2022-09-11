@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/restcountryapi/static/css/main.1b2328fd.css",
+    "main.js": "/restcountryapi/static/js/main.6bd931c2.js",
+    "static/js/787.ec704a7a.chunk.js": "/restcountryapi/static/js/787.ec704a7a.chunk.js",
+    "static/media/NunitoSans-Light.ttf": "/restcountryapi/static/media/NunitoSans-Light.8fde328cad4b7fd03bcd.ttf",
+    "static/media/NunitoSans-ExtraBold.ttf": "/restcountryapi/static/media/NunitoSans-ExtraBold.7f6fb187a1b4fe5f9f42.ttf",
+    "static/media/NunitoSans-SemiBold.ttf": "/restcountryapi/static/media/NunitoSans-SemiBold.97020b1bfe8c41a3bd4e.ttf",
+    "index.html": "/restcountryapi/index.html",
+    "main.1b2328fd.css.map": "/restcountryapi/static/css/main.1b2328fd.css.map",
+    "main.6bd931c2.js.map": "/restcountryapi/static/js/main.6bd931c2.js.map",
+    "787.ec704a7a.chunk.js.map": "/restcountryapi/static/js/787.ec704a7a.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1b2328fd.css",
+    "static/js/main.6bd931c2.js"
+  ]
+}
