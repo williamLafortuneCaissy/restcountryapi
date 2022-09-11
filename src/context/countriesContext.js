@@ -81,7 +81,7 @@ export const CountriesContextProvider = ({children}) => {
         localStorage.setItem('countries', JSON.stringify(transformedCountries))
 
         const today = new Date();
-        const tomorrow = new Date(today. getFullYear(), today. getMonth(), today. getDate()+1).getTime();
+        const tomorrow = new Date(today.getFullYear(), today.getMonth(), today.getDate()+1).getTime();
         localStorage.setItem('countriesExpiry', tomorrow)
 
         } catch (error) {

@@ -1,4 +1,4 @@
-import { faArrowLeft, faArrowLeftLong } from "@fortawesome/free-solid-svg-icons";
+import { faArrowLeftLong } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";

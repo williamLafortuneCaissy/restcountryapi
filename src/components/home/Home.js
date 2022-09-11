@@ -2,7 +2,6 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import uuid from "react-uuid";
 import CountriesContext from "../../context/countriesContext";
 import Loader from "../Loader";
 
@@ -19,7 +18,7 @@ const Home = () => {
         setCountries(countriesContext.countries)
 
         let regionArray = []
-        countriesContext.countries.map(country => {
+        countriesContext.countries.forEach(country => {
             if(!regionArray.includes(country.region)) {
                 regionArray = [...regionArray, country.region]
             }
@@ -39,7 +38,7 @@ const Home = () => {
             filteredCountries = filteredCountries.filter(country => country.name.toLowerCase().includes(search.toLowerCase()))
         }
         setCountries(filteredCountries)
-    }, [filter, search]);
+    }, [filter, search, countriesContext.countries]);
 
 
     function handleInput(event) {
