@@ -71,7 +71,7 @@ Par contre il y a quelques petit éléments clé don't je suis fier:
 - formatter le data au complet plutôt que de modifier les components après avoir vue la structure de l'api.
 Exemple: lorsque je liste les langues je m'attendait à recevoir un array pour que je puisse mapper les strings, mais l'api me renvoi un objet. J'ai fait une fonction réutilisable qui transforme un objet en array.
 
-```
+
 ```js
 // transform an object into an array of the given property (or the actual value)
 function getArray(object, prop = null) {
