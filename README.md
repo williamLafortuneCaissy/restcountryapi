@@ -17,7 +17,7 @@ This is a solution to the [REST Countries API with color theme switcher challeng
 - [Acknowledgments](#acknowledgments)
 
 ## Overview
-Premier projet "recap" avec la manipulation de data, fetch d'un api. Projet fait en 12h
+I used this project as a recap for data manipulation including fetching api. This project was done in 12h
 
 ### The challenge
 
@@ -36,7 +36,7 @@ Users should be able to:
 
 ### Links
 
-- Live Site URL: [https://williamlafortunecaissy.github.io/restcountryapi/](https://williamlafortunecaissy.github.io/restcountryapi/)
+- URL: [https://williamlafortunecaissy.github.io/restcountryapi/](https://williamlafortunecaissy.github.io/restcountryapi/)
 
 ### Built with
 
@@ -49,10 +49,10 @@ Users should be able to:
 
 ### What I learned
 
-J'ai pas vraiment appris de nouveau, ce projet étais avait pour but de pratiquer ce que j'ai appris en regardant des "crash courses".
-Par contre il y a quelques petit éléments clé don't je suis fier:
+This project helped me properly understanding a mix of various crash cources to handle data
+Here are some key items that i am proud of:
 
-- l'implantation du dark theme où j'utilise 4 variables de couleurs que j'update selon le theme sélectionné. Aucun component utilise les variable de couleur dans le :root ce qui rend le theming de la placeforme très dynamique.
+- the way the dark theme is handled, updating only 4 variables when toggling from 1 theme to another. all colors are handled by these var.
 ```css
 .app--light {
     --background: var(--light-gray);
@@ -68,10 +68,8 @@ Par contre il y a quelques petit éléments clé don't je suis fier:
 }
 ```
 
-- formatter le data au complet plutôt que de modifier les components après avoir vue la structure de l'api.
-Exemple: lorsque je liste les langues je m'attendait à recevoir un array pour que je puisse mapper les strings, mais l'api me renvoi un objet. J'ai fait une fonction réutilisable qui transforme un objet en array.
-
-
+- I made my component with static data first, so when I first fetched the actual data, I updated the data structure to fit my app rather than updating my components.
+Exemple: heres an example on when im listing the languages, I was expecting an array, the api returns an object. heres a rough helper function that I made to restructure everything into an array that i was expecting
 ```js
 // transform an object into an array of the given property (or the actual value)
 function getArray(object, prop = null) {
@@ -93,10 +91,6 @@ function getArray(object, prop = null) {
   ...
 }
 ```
-
-### Continued development
-
-Dans les prochains futur, je vais continuer à regarder des concepts et outils plus avancé comme redux / axios / formik, etc. et
 
 ## Author
 
